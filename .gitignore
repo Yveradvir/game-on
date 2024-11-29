@@ -1,3 +1,4 @@
+.env
 # Miscellaneous
 *.class
 *.log
@@ -48,4 +49,3 @@ app.egg-info
 .coverage
 .cache
 venv/
-.env
