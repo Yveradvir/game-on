@@ -48,3 +48,4 @@ app.egg-info
 .coverage
 .cache
 venv/
+.env
