@@ -69,7 +69,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/signin');
+                    Navigator.pushNamed(context, '/signup');
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
