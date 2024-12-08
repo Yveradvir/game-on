@@ -1,30 +1,23 @@
 from uuid import uuid4, UUID
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional
 
-from pydantic import BaseModel
-from sqlmodel import Column, DateTime, Field
+from sqlmodel import SQLModel, Field
 
-class BaseMixin(BaseModel):
-    id: Optional[str] = Field(
+class BaseMixin(SQLModel):
+    id: str = Field(
         default_factory=lambda: str(uuid4()),
         primary_key=True,
     )
 
     created_at: Optional[datetime] = Field(
-        sa_column=Column(
-            DateTime,
-            default=datetime.utcnow,
-            nullable=False,
-        )
+        default_factory=lambda: datetime.now(tz=timezone.utc),
+        nullable=False
     )
 
     updated_at: Optional[datetime] = Field(
-        sa_column=Column(
-            DateTime,
-            default=datetime.utcnow,
-            onupdate=datetime.utcnow,
-        )
+        default_factory=lambda: datetime.now(tz=timezone.utc),
+        nullable=False
     )
 
     def get_uuid(self):

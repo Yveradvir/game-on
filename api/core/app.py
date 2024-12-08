@@ -7,12 +7,12 @@ from utils.db import init_db
 from contextlib import asynccontextmanager
 
 @asynccontextmanager
-async def lifespan():
+async def lifespan(app: FastAPI):
     init_db()
     yield
 
 def makeapp() -> FastAPI:
-    app = FastAPI(lifespan=lifespan)
+    app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
 
     app.add_middleware(
         CORSMiddleware,

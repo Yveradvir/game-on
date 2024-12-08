@@ -16,7 +16,7 @@ class UserCreate(SQLModel):
     is_online: bool = Field(default=True)
     
 
-class User(SQLModel, BaseMixin, table=True):
+class User(BaseMixin, SQLModel, table=True):
     username: str = Field(unique=True, max_length=40)
     password: str = Field()
     
