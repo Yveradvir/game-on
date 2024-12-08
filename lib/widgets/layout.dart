@@ -14,14 +14,7 @@ class AppLayout extends StatelessWidget {
         backgroundColor: backgroundColor,
         leading: const Icon(Icons.menu, color: darkColor),
         centerTitle: true,
-        title: Text(
-          "Game - On",
-          style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: darkColor,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Montserrat',
-              ),
-        ),
+        title: const Text("Game - On", style: titleText),
       ),
       body: SingleChildScrollView(
         child: Column(

@@ -49,17 +49,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 ),
               ),
               if (index == welcomeDataList.length - 1) ...[
-                const SizedBox(height: 40),
+                const SizedBox(height: 24),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/signin');
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
+                      borderRadius: BorderRadius.circular(4),
                     ),
                     padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 40),
+                        horizontal: 30.0 * 2, vertical: 20.0),
                   ),
                   child: const Text(
                     'Sign In',
@@ -74,10 +74,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(0),
+                      borderRadius: BorderRadius.circular(4),
                     ),
                     padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 40),
+                        horizontal: 30.0 * 2, vertical: 20.0),
                   ),
                   child: const Text(
                     'Sign Up',

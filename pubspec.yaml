@@ -34,6 +34,7 @@ flutter:
           weight: 700
   
   assets:
+    - assets/images/error.svg
     - assets/images/welcome/1.svg
     - assets/images/welcome/2.svg
     - assets/images/welcome/3.svg

@@ -25,7 +25,10 @@ class HomeScreen extends StatelessWidget {
             statusCode: state.statusCode,
           );
         } else {
-          return const AppErrorWidget(message: "Not Found", statusCode: 404);
+          return const AppErrorWidget(
+            message: "Not Found",
+            statusCode: 404,
+          );
         }
       }),
     );
