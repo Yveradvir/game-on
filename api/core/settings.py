@@ -54,4 +54,6 @@ class Settings(BaseSettings):
     FIRST_SUPERUSER_EMAIL: str
     FIRST_SUPERUSER_PASSWORD: str
 
+    ALGORITHM: str
+
 settings = Settings()
