@@ -1,3 +1,5 @@
+from typing import Annotated
+from fastapi import Depends
 from sqlmodel import Session, create_engine, SQLModel, select
 
 from core.settings import settings
@@ -24,3 +26,9 @@ def init_db():
                 )
             )
             session.commit()  
+
+def get_session():
+    with Session(engine) as session:
+        yield session
+
+SessionDepend = Annotated[Session, Depends(get_session)]

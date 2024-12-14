@@ -2,16 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from core.settings import settings
-from utils.db import init_db
 
-from contextlib import asynccontextmanager
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    init_db()
-    yield
-
-def makeapp() -> FastAPI:
+def makeapp(lifespan, modules: list) -> FastAPI:
     app = FastAPI(title=settings.PROJECT_NAME, lifespan=lifespan)
 
     app.add_middleware(
@@ -21,5 +13,8 @@ def makeapp() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
+
+    for module in modules:
+        app.include_router(module.router)
 
     return app

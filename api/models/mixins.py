@@ -20,5 +20,9 @@ class BaseMixin(SQLModel):
         nullable=False
     )
 
+    def read_only(self, exclude: set = set()):
+        return self.model_dump(mode='json', exclude=exclude.union(exclude, {"password"}))
+
     def get_uuid(self):
         return UUID(self.id)
+    

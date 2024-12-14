@@ -28,6 +28,9 @@ class User(BaseMixin, SQLModel, table=True):
     is_superuser: bool = Field(default=False)
     is_online: bool = Field(default=True)
 
+    def read_only(self):
+        return super().read_only(exclude={"email"})
+
 def create_user(*, session, user_create: UserCreate):
     user = User.model_validate(user_create, update={
         "password": get_password_hash(user_create.password)
